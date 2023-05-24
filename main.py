@@ -1,9 +1,7 @@
 #!/usr/bin/env python
-import importlib.resources as pkg_resources
 from NikGapps.build.Operation import Operation
 from NikGapps.helper.Args import Args
 from NikGapps.helper import Config
-from NikGapps.helper.Assets import Assets
 from NikGapps.helper.SystemStat import SystemStat
 from NikGapps.helper.P import P
 from NikGapps.helper.T import T
@@ -32,17 +30,10 @@ print("---------------------------------------")
 print("Packages to build: " + str(package_list))
 print("---------------------------------------")
 
-print(Assets.assets_folder)
-path = pkg_resources.path('NikGapps.helper.assets', '')
-print(str(path))
-
-with pkg_resources.path('NikGapps.helper.assets', '') as asset_path:
-    print(asset_path)
-
-# operation = Operation()
-# telegram = TelegramApi(Config.TELEGRAM_BOT_TOKEN, Config.TELEGRAM_CHAT_ID)
-# operation.build(git_clone=args.enable_git_clone, android_versions=android_versions,
-#                 package_list=package_list, telegram=telegram)
+operation = Operation()
+telegram = TelegramApi(Config.TELEGRAM_BOT_TOKEN, Config.TELEGRAM_CHAT_ID)
+operation.build(git_clone=args.enable_git_clone, android_versions=android_versions,
+                package_list=package_list, telegram=telegram)
 
 t.taken("Total time taken by the program")
 
