@@ -33,7 +33,12 @@ print("Packages to build: " + str(package_list))
 print("---------------------------------------")
 
 print(Assets.assets_folder)
-print(str(pkg_resources.path('NikGapps.helper.assets', '')))
+path = pkg_resources.path('NikGapps.helper.assets', '')
+print(str(path))
+
+with pkg_resources.path('NikGapps.helper.assets', '') as asset_path:
+    print(asset_path)
+
 # operation = Operation()
 # telegram = TelegramApi(Config.TELEGRAM_BOT_TOKEN, Config.TELEGRAM_CHAT_ID)
 # operation.build(git_clone=args.enable_git_clone, android_versions=android_versions,
